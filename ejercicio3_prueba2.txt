@@ -1,0 +1,88 @@
+#!/usr/bin/python
+# -+- coding: utf-8 .*.
+
+import sys
+from lxml import etree
+
+arbol = etree.parse("/home/dani/Documentos/eventos.xml")
+raiz = arbol.getroot()
+
+
+#1. Lista de eventos
+print "Ejercicio 1. Lista los distintos eventos"
+print ""
+print "Los eventos que hay son:"
+
+contenido = raiz.findall('contenido/atributos')
+for x in contenido:
+	print "Evento:",x.xpath("atributo/text()")[1]
+
+
+
+
+#2. Contar los eventos por distritos
+print "Ejercicio 2. Contar los eventos por distritos"
+print ""
+
+
+
+
+distrito = raiz.xpath('///atributos/atributo/atributo[10]/text()')
+for x in distrito:
+	print x
+		
+
+#3. Pedir por teclado un dia de la semana y mostrar los eventos de ese dia
+
+
+semana=["Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo"]
+
+dia2 = (raw_input("Dime un dia: ")).capitalize()
+
+if not dia2 in semana:
+	print "erro, no has introducido bien el dia"
+	sys.exit()
+
+lista_eventos_fecha= []
+fecha=[]
+eventos_fecha=[]
+
+if dia2 == "Miercoles":
+	dia2 = "X"
+
+dia = dia2[0]
+atributos = raiz.xpath('///atributos')
+
+for x in atributos:
+	fecha = x.xpath('atributo[5]/text()')
+	eventos_fecha = x.xpath('atributo[2]/text()')
+	for y in fecha:
+		if dia in y:
+			
+			lista_eventos_fecha.append(eventos_fecha)
+
+for x in lista_eventos_fecha:
+	print x
+
+
+
+
+
+
+
+
+
+
+
+#4. Pedir dos fechas y mostrar los eventos que se realizan entre dichas fechas
+#5. Duracion de cada evento
+
+
+
+
+
+
+
+
+
+
