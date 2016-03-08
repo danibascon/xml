@@ -1,18 +1,23 @@
-#!/usr/bin/python
-# -+- coding: utf-8 .*.
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 import os
+import json
 import sys
-from lxml import etree
+from pprint import pprint
 
-arbol = etree.parse("/home/dani/Documentos/eventos.xml")
-raiz = arbol.getroot()
+fichero_perros = open('/home/dani/Documentos/perros.json','r')
+perro = json.load(fichero_perros)
+print "Ejercicio 1. Lista las distintas razas que hay"
+print "Estas son las distintas razas de perros que hay:"
 
+filas = len(perro["animales"]["animal"])
+#312
+lista_perro=[]
+for i in xrange(1,filas):
+	raza = perro["animales"]["animal"][i]["descripcion"]
+	if not raza in lista_perro:
+		lista_perro.append(raza)
 
-print "Ejercicio 1. Lista los distintos eventos"
-print ""
-print "Los eventos que hay son:"
-
-contenido = raiz.findall('contenido/atributos')
-for x in contenido:
-	print "Evento:",x.xpath("atributo/text()")[1]
+for x in lista_perro:
+	print x
