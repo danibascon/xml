@@ -1,5 +1,5 @@
-1. Lista de los distintos eventos que hay.
-2. ¿Cuantos eventos gratuitos y de pago hay?
-3. Pedir el distrito y mostrar eventos con la fecha de inicio
-4. Pues pedir el día, y mostrar los eventos de ese día
-5. Pedir dos fechas y mostrar los eventos que hay entre ellas.
+1. Listame los titulos de los eventos.
+2. La cantidad de eventos que hay en el distrito Hortaleza.
+3. Mostrar los distrito donde aparezca la siguiente cadena.
+4. Pedir distrito y mostrar su localización.
+5. Pedir una fecha de inico y otra de fin, y mostrar los eventos que empiecen y acaben en esa fecha.
